@@ -71,3 +71,9 @@ models:
         description: Where the user lives.
         tests:
           - not_null
+
+      - name: first_subscription_starts_at
+        description: The user's first subscription date.
+
+      - name: count_of_subscriptions
+        description: The count of subscriptions by user.
