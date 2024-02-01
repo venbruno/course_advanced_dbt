@@ -1,0 +1,26 @@
+version: 2
+
+macros:
+  - name: rolling_average_n_periods
+    description: This macro aggregates (pick your aggregation type) values (select your column) on specified partitions and time frames.
+    arguments:
+
+      - name: agg_type
+        type: string
+        description: The aggregation type (e.g., count, sum, avg, etc.).
+
+      - name: column_name
+        type: string
+        description: The column you want to aggregate.
+
+      - name: partition_by
+        type: string
+        description: The partition of your calculation.
+
+      - name: time_frame
+        type: integer
+        description: The number of rows (and potentially days/months) you plan to use as the range for your calculation (e.g., the previous seven rows).
+
+      - name: order_by
+        type: date
+        description: How you want to sort your data before computing your calculation.
