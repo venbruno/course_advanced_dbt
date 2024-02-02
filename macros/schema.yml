@@ -24,3 +24,15 @@ macros:
       - name: order_by
         type: date
         description: How you want to sort your data before computing your calculation.
+
+  - name: date_trunc
+    description: This macro truncates your date or timestamp column to a specified trunc_option.
+    arguments:
+
+      - name: trunc_option
+        type: string
+        description: The date or time part option (e.g., hour, day, month, etc.).
+
+      - name: column_name
+        type: date
+        description: The date/time column you want to truncate.
