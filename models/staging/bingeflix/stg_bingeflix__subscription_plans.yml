@@ -13,6 +13,8 @@ models:
 
       - name: pricing
         description: The price of the subscription.
+        tests:
+          - assert_column_is_positive
 
       - name: payment_period
         description: The recurring payment period for the subscription.
