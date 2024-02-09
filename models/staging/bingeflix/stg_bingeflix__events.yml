@@ -13,6 +13,10 @@ models:
 
       - name: event_name
         description: '{{ doc("bingeflix_events_event_name") }}'
+        tests:
+          - not_test:
+              config:
+                severity: error
 
       - name: event_id
         description: '{{ doc("bingeflix_events_event_id") }}'
