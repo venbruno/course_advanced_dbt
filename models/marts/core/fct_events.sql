@@ -1,4 +1,11 @@
-{{ config(materialized='table') }}
+{{
+    config(
+        materialized='incremental',
+        unique_key='event_id',
+        on_schema_change='ignore',
+        incremental_strategy='delete+insert'
+    )
+}}
 
 SELECT
     session_id,
@@ -9,3 +16,9 @@ SELECT
     {{ rolling_average_n_periods() }}
 
 FROM {{ ref('stg_bingeflix__events') }}
+
+{% if is_incremental() %}
+
+{{ incremental_where_clause() }}
+
+{% endif %}
